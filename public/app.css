@@ -6,6 +6,18 @@ body {
 	padding: 0 1em;
 }
 
+nav a {
+	display: inline-block;
+	padding: 5px 10px;
+	border: 1px solid green;
+}
+
+nav .active {
+	background: #ffff00;
+	font-weight: bold;
+	font-style: italic;
+}
+
 .recipe-preview {
 	padding-left: 1em;
 }

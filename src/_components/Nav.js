@@ -6,8 +6,9 @@ class Nav extends React.Component {
 		return (
 			<section>
 				<nav>
-					<NavLink exact to="/">Home</NavLink>
-					<NavLink to="/recipes">Recipes</NavLink> 
+					<NavLink exact to="/" activeClassName="active">Home</NavLink>
+					{' '}
+					<NavLink to="/recipes" activeClassName="active">Recipes</NavLink> 
 				</nav>
 			</section>
 		);
