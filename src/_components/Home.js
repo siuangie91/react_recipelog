@@ -96,7 +96,10 @@ class Home extends React.Component {
 				<div className="col-md-5 home-preview">
 					{
 						this.state.showPreview ? 
-							<Recipe recipe={recipeStore[recipeStore.length - 1]}/> :
+							<div>
+								<h2>Your new recipe:</h2>
+								<Recipe recipe={recipeStore[recipeStore.length - 1]}/>		
+							</div> :
 							''
 					}
 				</div>

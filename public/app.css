@@ -19,5 +19,25 @@ nav .active {
 }
 
 .recipe-preview {
+	position: relative;
 	padding-left: 1em;
+	border: 1px solid #666;
+	border-radius: 10px;
+}
+
+.recipe-header {
+	padding-top: 10px;
+}
+
+.recipe-image {
+	display: inline-block;
+    width: 100px;
+    top: 10px;
+    left: 0px;
+}
+
+.recipe-title {
+    display: inline-block;
+    width: calc(100% - 140px);
+	margin-left: 10px;
 }

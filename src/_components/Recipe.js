@@ -7,12 +7,16 @@ class Recipe extends React.Component {
 		return (
 			<div className="recipe-preview">
 				{/*<h2>Your New Recipe!</h2>*/}
-				<div className="recipe-image col-md-4">
-					<img src="http://placehold.it/100x100" alt={name}/>
+				<div className="recipe-header">
+					<div className="recipe-image">
+						<img src="http://placehold.it/100x100" alt={name}/>
+					</div>
+					<div className="recipe-title">
+						<h4>{name}</h4>
+						<p>{description}</p>
+					</div>
 				</div>
-				<div className="recipe-info col-md-6">
-					<h4>{name}</h4>
-					<p>{description}</p>
+				<div className="recipe-info">
 					<ul><strong>Ingredients</strong>
 						{
 							ingredients.map((item, i) => {
