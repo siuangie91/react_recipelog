@@ -1,8 +1,8 @@
 export const SET_RECIPE = 'SET_RECIPE';
 
-export function setRecipes(recipes) {
+export function setRecipe(recipe) {
 	return {
-		recipes,
+		recipe,
 		type: SET_RECIPE
 	}
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { setRecipe } from '../_actions';
+
 import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 
 class Home extends React.Component {
@@ -50,13 +52,18 @@ class Home extends React.Component {
 						<FormControl componentClass="textarea" rows="7" placeholder="Go to the next line after each ingredient" 
 							onChange={e => this.updateIngredientList(e.target.value)}/>
 					</FormGroup>
+					<FormGroup>
+						<Button className="btn btn-primary pull-right"
+							onClick={() => {
+								this.props.setRecipe(this.state)	
+							}}>+ Add to Recipe Register</Button>
+					</FormGroup>
 				</Form>
 
 				<h4>{this.state.name}</h4>
 				<p>{this.state.description}</p>
 				<ul>
 					{
-
 						this.state.ingredients.map((item, i) => {
 							return (
 								<li key={i}>{item}</li>
@@ -69,8 +76,5 @@ class Home extends React.Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return state.rootReducer;
-}
 
-export default connect(mapStateToProps, null)(Home);
+export default connect(null, { setRecipe })(Home);
