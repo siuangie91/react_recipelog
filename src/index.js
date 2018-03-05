@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 // redux
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-// router
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import { NavLink } from 'react-router-dom';
 // reducers
 import rootReducer from './_reducers';
 // components

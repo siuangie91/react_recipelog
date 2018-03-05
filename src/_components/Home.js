@@ -49,6 +49,7 @@ class Home extends React.Component {
 	render() {
 		return (
 			<section>
+				<h1>React Recipe Register</h1>
 				<div className="col-md-5 form-container">
 					<h2>Enter your recipe info:</h2>
 
