@@ -43,10 +43,21 @@ class Home extends React.Component {
 		this.props.setRecipe(this.state.recipe);
 		this.setState({
 			showPreview: true
-		})
+		});
+		this.setState({
+			recipe: {
+				name: '',
+				description: '',
+				ingredients: [],
+				directions: []
+			}
+		});
 	}
 
 	render() {
+		// console.log('this.props.recipes', this.props.recipes);
+		const recipeStore = this.props.recipes;
+
 		return (
 			<section>
 				<h1>React Recipe Register</h1>
@@ -85,7 +96,7 @@ class Home extends React.Component {
 				<div className="col-md-5 home-preview">
 					{
 						this.state.showPreview ? 
-							<Recipe recipe={this.state.recipe} /> : 
+							<Recipe recipe={recipeStore[recipeStore.length - 1]}/> :
 							''
 					}
 				</div>
@@ -94,5 +105,9 @@ class Home extends React.Component {
 	}
 }
 
+function mapStateToProps(state) {
+	return state;
+}
 
-export default connect(null, { setRecipe })(Home);
+
+export default connect(mapStateToProps, { setRecipe })(Home);

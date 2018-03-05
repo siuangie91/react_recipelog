@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import { NavLink } from 'react-router-dom';
 // reducers
 import rootReducer from './_reducers';
 // components
