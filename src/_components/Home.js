@@ -5,29 +5,48 @@ import { setRecipe } from '../_actions';
 
 import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 
+import Recipe from './Recipe';
+
 class Home extends React.Component {
 	constructor() {
 		super();
 
 		this.state = {
-			name: '',
-			description: '',
-			ingredients: [],
-			directions: ''
+			recipe: {
+				name: '',
+				description: '',
+				ingredients: [],
+				directions: []
+			},
+			showPreview: false
 		}
 	}
 
-	updateIngredientList(ingredientsStr) {
-		let ingredientsArr = ingredientsStr.split('\n');
-		console.log(ingredientsArr);
+	updateRecipeStr(value, recipePart) {
+		let recipe = this.state.recipe;
+		recipe[recipePart] = value;
 		this.setState({
-			ingredients: ingredientsArr
+			recipe: recipe
+		})
+	}
+
+	updateRecipeArr(string, recipePart) {
+		let arr = string.split('\n');
+		let recipe = this.state.recipe;
+		recipe[recipePart] = arr;
+		this.setState({
+			recipe: recipe
+		})
+	}
+
+	addToRecipeRegister() {
+		this.props.setRecipe(this.state.recipe);
+		this.setState({
+			showPreview: true
 		})
 	}
 
 	render() {
-		console.log(this.state.ingredients);
-
 		return (
 			<div>
 				<h2>Enter your recipe info:</h2>
@@ -36,41 +55,34 @@ class Home extends React.Component {
 					<FormGroup>
 						<ControlLabel>Recipe Name</ControlLabel>
 						<FormControl type="text" placeholder="World Famous Chicken" 
-							onChange={e => this.setState({
-								name: e.target.value
-							})}/>
+							onChange={e => this.updateRecipeStr(e.target.value, 'name')}/>
 					</FormGroup>	
 					<FormGroup>
 						<ControlLabel>Description</ControlLabel>
-						<FormControl type="text" placeholder="Double fried, extra cripsy chicken" 
-							onChange={e => this.setState({
-								description: e.target.value
-							})}/>
+						<FormControl type="text" placeholder="Double fried, extra cripsy chicken"
+							onChange={e => this.updateRecipeStr(e.target.value, 'description')}/>
 					</FormGroup>
 					<FormGroup>
 						<ControlLabel>Ingredients</ControlLabel>
-						<FormControl componentClass="textarea" rows="7" placeholder="Go to the next line after each ingredient" 
-							onChange={e => this.updateIngredientList(e.target.value)}/>
+						<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each ingredient" 
+							onChange={e => this.updateRecipeArr(e.target.value, 'ingredients')}/>
 					</FormGroup>
 					<FormGroup>
-						<Button className="btn btn-primary pull-right"
+						<ControlLabel>Directions</ControlLabel>
+						<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each step" 
+							onChange={e => this.updateRecipeArr(e.target.value, 'directions')}/>
+					</FormGroup>
+					<FormGroup>
+						<Button className="btn btn-primary"
 							onClick={() => {
-								this.props.setRecipe(this.state)	
+								this.addToRecipeRegister()
 							}}>+ Add to Recipe Register</Button>
 					</FormGroup>
 				</Form>
+				{
+					this.state.showPreview ? <Recipe recipe={this.state.recipe}/> : ''
+				}
 
-				<h4>{this.state.name}</h4>
-				<p>{this.state.description}</p>
-				<ul>
-					{
-						this.state.ingredients.map((item, i) => {
-							return (
-								<li key={i}>{item}</li>
-							);
-						})
-					}
-				</ul>
 			</div>
 		);
 	}
