@@ -1,0 +1,11 @@
+h1 {
+	text-align: center;
+}
+
+body {
+	padding: 0 1em;
+}
+
+.recipe-preview {
+	padding-left: 1em;
+}

@@ -48,42 +48,47 @@ class Home extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<h2>Enter your recipe info:</h2>
+			<section>
+				<div className="col-md-5 form-container">
+					<h2>Enter your recipe info:</h2>
 
-				<Form>
-					<FormGroup>
-						<ControlLabel>Recipe Name</ControlLabel>
-						<FormControl type="text" placeholder="World Famous Chicken" 
-							onChange={e => this.updateRecipeStr(e.target.value, 'name')}/>
-					</FormGroup>	
-					<FormGroup>
-						<ControlLabel>Description</ControlLabel>
-						<FormControl type="text" placeholder="Double fried, extra cripsy chicken"
-							onChange={e => this.updateRecipeStr(e.target.value, 'description')}/>
-					</FormGroup>
-					<FormGroup>
-						<ControlLabel>Ingredients</ControlLabel>
-						<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each ingredient" 
-							onChange={e => this.updateRecipeArr(e.target.value, 'ingredients')}/>
-					</FormGroup>
-					<FormGroup>
-						<ControlLabel>Directions</ControlLabel>
-						<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each step" 
-							onChange={e => this.updateRecipeArr(e.target.value, 'directions')}/>
-					</FormGroup>
-					<FormGroup>
-						<Button className="btn btn-primary"
-							onClick={() => {
-								this.addToRecipeRegister()
-							}}>+ Add to Recipe Register</Button>
-					</FormGroup>
-				</Form>
-				{
-					this.state.showPreview ? <Recipe recipe={this.state.recipe}/> : ''
-				}
-
-			</div>
+					<Form>
+						<FormGroup>
+							<ControlLabel>Recipe Name</ControlLabel>
+							<FormControl type="text" placeholder="World Famous Chicken" 
+								onChange={e => this.updateRecipeStr(e.target.value, 'name')}/>
+						</FormGroup>	
+						<FormGroup>
+							<ControlLabel>Description</ControlLabel>
+							<FormControl type="text" placeholder="Double fried, extra cripsy chicken"
+								onChange={e => this.updateRecipeStr(e.target.value, 'description')}/>
+						</FormGroup>
+						<FormGroup>
+							<ControlLabel>Ingredients</ControlLabel>
+							<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each ingredient" 
+								onChange={e => this.updateRecipeArr(e.target.value, 'ingredients')}/>
+						</FormGroup>
+						<FormGroup>
+							<ControlLabel>Directions</ControlLabel>
+							<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each step" 
+								onChange={e => this.updateRecipeArr(e.target.value, 'directions')}/>
+						</FormGroup>
+						<FormGroup>
+							<Button className="btn btn-primary"
+								onClick={() => {
+									this.addToRecipeRegister()
+								}}>+ Add to Recipe Register</Button>
+						</FormGroup>
+					</Form>
+				</div>
+				<div className="col-md-5 home-preview">
+					{
+						this.state.showPreview ? 
+							<Recipe recipe={this.state.recipe} /> : 
+							''
+					}
+				</div>
+			</section>
 		);
 	}
 }
