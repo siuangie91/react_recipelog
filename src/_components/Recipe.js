@@ -2,17 +2,17 @@ import React from 'react';
 
 class Recipe extends React.Component {
 	render() {
-		const { name, description, ingredients, directions } = this.props.recipe;
+		const { id, name, description, ingredients, directions } = this.props.recipe;
 
 		return (
 			<div className="recipe-preview">
 				{/*<h2>Your New Recipe!</h2>*/}
 				<div className="recipe-header">
 					<div className="recipe-image">
-						<img src="http://placehold.it/100x100" alt={name}/>
+						<img src={`http://placehold.it/100x100?text=${name}`} alt={name}/>
 					</div>
 					<div className="recipe-title">
-						<h4>{name}</h4>
+						<h4>{id}. {name}</h4>
 						<p>{description}</p>
 					</div>
 				</div>

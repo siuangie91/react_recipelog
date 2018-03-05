@@ -10,9 +10,9 @@ class RecipePage extends React.Component {
 			<section className="col-md-6">
 				<h1>Your Recipes!</h1>
 				{
-					this.props.recipes.map((recipe, i) => {
+					this.props.recipes.map((recipe) => {
 						return (
-							<Recipe key={i} recipe={recipe}/>
+							<Recipe key={recipe.id} recipe={recipe}/>
 						);
 					})
 				}

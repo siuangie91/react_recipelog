@@ -13,6 +13,7 @@ class Home extends React.Component {
 
 		this.state = {
 			recipe: {
+				id: '',
 				name: '',
 				description: '',
 				ingredients: [],
@@ -46,6 +47,7 @@ class Home extends React.Component {
 		});
 		this.setState({
 			recipe: {
+				id: '',
 				name: '',
 				description: '',
 				ingredients: [],
@@ -88,6 +90,7 @@ class Home extends React.Component {
 						<FormGroup>
 							<Button className="btn btn-primary"
 								onClick={() => {
+									this.updateRecipeStr(recipeStore.length, 'id');
 									this.addToRecipeRegister()
 								}}>+ Add to Recipe Register</Button>
 						</FormGroup>
