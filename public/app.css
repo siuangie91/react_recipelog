@@ -3,17 +3,15 @@
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-family: 'Patrick Hand', sans-serif;
-	letter-spacing: 1px;
+	font-family: 'Open Sans', sans-serif;
 }
 
 body {
 	/*background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(https://scontent-atl3-1.cdninstagram.com/vp/eb60bba2d3bd7a0147a2251923efc1d4/5B425833/t51.2885-15/s750x750/sh0.08/e35/23970161_392715597829783_1256503364028465152_n.jpg) no-repeat;*/
-	background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(https://scontent-atl3-1.cdninstagram.com/vp/a205bf4243cf2cb368786cf706332afe/5B314A13/t51.2885-15/e35/23823660_1637413389643823_2318266511355019264_n.jpg) no-repeat;
+	background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(https://scontent-atl3-1.cdninstagram.com/vp/a205bf4243cf2cb368786cf706332afe/5B314A13/t51.2885-15/e35/23823660_1637413389643823_2318266511355019264_n.jpg) no-repeat;
 	background-position: center center;
 	background-size: cover;
 	min-height: 100vh;
-	font-size: 20px;
 }
 
 .nav-container nav {
@@ -68,7 +66,12 @@ header {
 }
 
 .form-control {
-	letter-spacing: 0.1em;
+	box-shadow: -1px 1px 3px #999 inset;
+}
+
+.form-control::placeholder {
+	color: #ccc;
+	opacity: 0.75;
 }
 
 .form-group.submit {
@@ -81,7 +84,7 @@ header {
 	border: 1px solid #666;
 	border-radius: 10px;
 	margin-bottom: 15px;
-	background: rgba(255,255,255,0.9);
+	background: #fff;
 	box-shadow: 5px 5px 10px #ccc;
     -webkit-transition: box-shadow 400ms;
     -moz-transition: box-shadow 400ms;

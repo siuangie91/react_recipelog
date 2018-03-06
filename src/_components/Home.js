@@ -42,10 +42,13 @@ class Home extends React.Component {
 	}
 
 	addToRecipeRegister() {
+		// pass it into the store
 		this.props.setRecipe(this.state.recipe);
+
 		this.setState({
 			showPreview: true
 		});
+		//set up state for next recipe
 		this.setState({
 			recipe: {
 				id: '',
@@ -54,6 +57,11 @@ class Home extends React.Component {
 				ingredients: [],
 				directions: []
 			}
+		});
+		// reset form
+		document.querySelectorAll('.form-control').forEach((currentItem) => {
+			currentItem.value = "";	
+			currentItem.innerHTML = "";
 		});
 	}
 

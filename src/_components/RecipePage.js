@@ -10,8 +10,8 @@ class RecipePage extends React.Component {
 		return (	
 			<section className="main-content">
 				<Header />
-				<h2>Your Recipes</h2>
-				<section className="col-md-6">
+				<section className="col-md-6 offset-md-3">
+					<h2>Your Recipes</h2>
 					{
 						this.props.recipes.map((recipe) => {
 							return (
