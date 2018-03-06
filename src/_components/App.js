@@ -16,7 +16,7 @@ export default class App extends React.Component {
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route exact path="/recipes" component={RecipePage} />
-						<Route path="/recipes/:id" component={RecipeDetails} />
+						<Route path="/recipe/:id" component={RecipeDetails} />
 					</Switch>
 				</div>
 			</BrowserRouter>

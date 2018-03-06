@@ -13,8 +13,10 @@ class RecipeDetails extends React.Component {
 		return (
 			<section className="main-content">
 				<Header />
-				<h1>{recipeId}. {currentRecipe.name}</h1>
-				<div className="recipe-info">
+				<div className="col-md-6 offset-md-3 recipe-info">
+					<img src={`http://placehold.it/300x300?text=${currentRecipe.name}`} alt={currentRecipe.name}/>
+					<h2>{+recipeId+1}. {currentRecipe.name}</h2>
+					<p>{currentRecipe.description}</p>
 					<ul><strong>Ingredients</strong>
 						{
 							currentRecipe.ingredients.map((item, i) => {

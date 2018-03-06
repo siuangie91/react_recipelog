@@ -80,6 +80,7 @@ header {
 
 .recipe-preview {
 	position: relative;
+	display: block;
 	padding-left: 1em;
 	border: 1px solid #666;
 	border-radius: 10px;
@@ -90,6 +91,7 @@ header {
     -moz-transition: box-shadow 400ms;
     transition: box-shadow 400ms;
     cursor: pointer;
+    color: inherit;
 }
 
 .recipe-preview:hover {
