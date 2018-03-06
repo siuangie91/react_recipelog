@@ -4,11 +4,15 @@ import { NavLink } from 'react-router-dom';
 class Nav extends React.Component {
 	render() {
 		return (
-			<section>
+			<section className="nav-container">
 				<nav>
-					<NavLink exact to="/" activeClassName="active">Home</NavLink>
+					<NavLink exact to="/" activeClassName="active">
+						<span><i className="fa fa-home"></i> Home</span>
+					</NavLink>
 					{' '}
-					<NavLink to="/recipes" activeClassName="active">Recipes</NavLink> 
+					<NavLink to="/recipes" activeClassName="active">
+						<span><i className="fa fa-book"></i> Recipes</span>
+					</NavLink> 
 				</nav>
 			</section>
 		);

@@ -5,6 +5,7 @@ import { setRecipe } from '../_actions';
 
 import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 
+import Header from './Header';
 import Recipe from './Recipe';
 
 class Home extends React.Component {
@@ -61,51 +62,53 @@ class Home extends React.Component {
 		const recipeStore = this.props.recipes;
 
 		return (
-			<section>
-				<h1>React Recipe Register</h1>
-				<div className="col-md-5 form-container">
-					<h2>Enter your recipe info:</h2>
+			<section className="main-content">
+				<Header />
+				<section className="row">
+					<div className={this.state.showPreview ? "col-md-6 offset-md-1 form-container" : "col-md-6 offset-md-3 form-container"}> 
+						<h2>Enter your recipe info:</h2>
 
-					<Form>
-						<FormGroup>
-							<ControlLabel>Recipe Name</ControlLabel>
-							<FormControl type="text" placeholder="World Famous Chicken" 
-								onChange={e => this.updateRecipeStr(e.target.value, 'name')}/>
-						</FormGroup>	
-						<FormGroup>
-							<ControlLabel>Description</ControlLabel>
-							<FormControl type="text" placeholder="Double fried, extra cripsy chicken"
-								onChange={e => this.updateRecipeStr(e.target.value, 'description')}/>
-						</FormGroup>
-						<FormGroup>
-							<ControlLabel>Ingredients</ControlLabel>
-							<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each ingredient" 
-								onChange={e => this.updateRecipeArr(e.target.value, 'ingredients')}/>
-						</FormGroup>
-						<FormGroup>
-							<ControlLabel>Directions</ControlLabel>
-							<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each step" 
-								onChange={e => this.updateRecipeArr(e.target.value, 'directions')}/>
-						</FormGroup>
-						<FormGroup>
-							<Button className="btn btn-primary"
-								onClick={() => {
-									this.updateRecipeStr(recipeStore.length, 'id');
-									this.addToRecipeRegister()
-								}}>+ Add to Recipe Register</Button>
-						</FormGroup>
-					</Form>
-				</div>
-				<div className="col-md-5 home-preview">
+						<Form>
+							<FormGroup>
+								<ControlLabel>Recipe Name</ControlLabel>
+								<FormControl type="text" placeholder="World Famous Chicken" 
+									onChange={e => this.updateRecipeStr(e.target.value, 'name')}/>
+							</FormGroup>	
+							<FormGroup>
+								<ControlLabel>Description</ControlLabel>
+								<FormControl type="text" placeholder="Double fried, extra crispy chicken"
+									onChange={e => this.updateRecipeStr(e.target.value, 'description')}/>
+							</FormGroup>
+							<FormGroup>
+								<ControlLabel>Ingredients</ControlLabel>
+								<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each ingredient" 
+									onChange={e => this.updateRecipeArr(e.target.value, 'ingredients')}/>
+							</FormGroup>
+							<FormGroup>
+								<ControlLabel>Directions</ControlLabel>
+								<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each step" 
+									onChange={e => this.updateRecipeArr(e.target.value, 'directions')}/>
+							</FormGroup>
+							<FormGroup className="submit">
+								<Button className="btn btn-primary"
+									onClick={() => {
+										this.updateRecipeStr(recipeStore.length, 'id');
+										this.addToRecipeRegister()
+									}}>
+										<strong>+ Add to Recipe Register</strong>
+								</Button>
+							</FormGroup>
+						</Form>
+					</div>
 					{
 						this.state.showPreview ? 
-							<div>
+							<div className="col-md-4 home-preview">
 								<h2>Your new recipe:</h2>
 								<Recipe recipe={recipeStore[recipeStore.length - 1]}/>		
 							</div> :
 							''
 					}
-				</div>
+				</section>
 			</section>
 		);
 	}
