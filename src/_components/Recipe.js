@@ -6,8 +6,7 @@ class Recipe extends React.Component {
 		const { id, name, description } = this.props.recipe;
 
 		return (
-			<Link to={`/recipe/${id}`} 
-				className="recipe-preview">
+			<div className="recipe-preview">
 				<div className="recipe-header">
 					<div className="recipe-image">
 						<img src={`http://placehold.it/100x100?text=${name}`} alt={name}/>
@@ -17,9 +16,11 @@ class Recipe extends React.Component {
 						<p>{description}</p>
 					</div>
 				</div>
-			</Link>
+				<Link to={`/recipe/${id}`} className="recipe-link" />
+			</div>
 		);
 	}
 }
+
 
 export default Recipe;
