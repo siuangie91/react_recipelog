@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import Nav from './Nav';
 import RecipePage from './RecipePage';
+import RecipeDetails from './RecipeDetails';
 
 export default class App extends React.Component {	
 	render() {
@@ -14,7 +15,8 @@ export default class App extends React.Component {
 					<Nav />
 					<Switch>
 						<Route exact path="/" component={Home} />
-						<Route path="/recipes" component={RecipePage} />
+						<Route exact path="/recipes" component={RecipePage} />
+						<Route path="/recipes/:id" component={RecipeDetails} />
 					</Switch>
 				</div>
 			</BrowserRouter>

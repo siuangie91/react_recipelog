@@ -73,7 +73,15 @@ class Home extends React.Component {
 			<section className="main-content">
 				<Header />
 				<section className="row">
-					<div className={this.state.showPreview ? "col-md-6 offset-md-1 form-container" : "col-md-6 offset-md-3 form-container"}> 
+					{
+						this.state.showPreview ? 
+							<div className="col-md-6 offset-md-3 home-preview">
+								<h2>Your new recipe:</h2>
+								<Recipe recipe={recipeStore[recipeStore.length - 1]}/>		
+							</div> :
+							''
+					}
+					<div className="col-md-6 offset-md-3 form-container"> 
 						<h2>Enter your recipe info:</h2>
 
 						<Form>
@@ -108,14 +116,6 @@ class Home extends React.Component {
 							</FormGroup>
 						</Form>
 					</div>
-					{
-						this.state.showPreview ? 
-							<div className="col-md-4 home-preview">
-								<h2>Your new recipe:</h2>
-								<Recipe recipe={recipeStore[recipeStore.length - 1]}/>		
-							</div> :
-							''
-					}
 				</section>
 			</section>
 		);

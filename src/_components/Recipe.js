@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Recipe extends React.Component {
 	render() {
@@ -6,17 +7,17 @@ class Recipe extends React.Component {
 
 		return (
 			<div className="recipe-preview">
-				{/*<h2>Your New Recipe!</h2>*/}
 				<div className="recipe-header">
 					<div className="recipe-image">
 						<img src={`http://placehold.it/100x100?text=${name}`} alt={name}/>
 					</div>
 					<div className="recipe-title">
 						<h4>{id+1}. {name}</h4>
+						<Link to={`/recipes/${id}`}>go to recipe</Link>
 						<p>{description}</p>
 					</div>
 				</div>
-				<div className="recipe-info">
+				{/*<div className="recipe-info">
 					<ul><strong>Ingredients</strong>
 						{
 							ingredients.map((item, i) => {
@@ -35,7 +36,7 @@ class Recipe extends React.Component {
 							})
 						}
 					</ol>
-				</div>
+				</div>*/}
 			</div>
 		);
 	}
