@@ -6,6 +6,7 @@ import Home from './Home';
 import Nav from './Nav';
 import RecipePage from './RecipePage';
 import RecipeDetails from './RecipeDetails';
+import NotFound from './NotFound';
 
 export default class App extends React.Component {
 	render() {
@@ -16,7 +17,8 @@ export default class App extends React.Component {
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route exact path="/recipes" component={RecipePage} />
-						<Route path="/recipe/:id" component={RecipeDetails} />
+						<Route exact path="/recipe/:id" component={RecipeDetails} />
+						<Route component={NotFound} />
 					</Switch>
 				</div>
 			</HashRouter>

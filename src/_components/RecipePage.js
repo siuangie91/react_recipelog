@@ -16,7 +16,7 @@ class RecipePage extends React.Component {
 					(this.props.recipes.length < 1) ?
 						<section className="col-md-6 offset-md-3">
 							<h2>Uh oh! You don't have any recipes yet!</h2>
-							<Link to="/">Go and add one!</Link>
+							<Link to="/">Let's add a recipe!</Link>
 						</section>
 						:
 						<section className="col-md-6 offset-md-3">

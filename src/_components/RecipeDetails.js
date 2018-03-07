@@ -19,7 +19,7 @@ class RecipeDetails extends React.Component {
 					(!currentRecipe) ? 
 						<div className="col-md-6 offset-md-3 recipe-info">
 							<h2>Sorry! No such recipe!</h2>
-							<Link to="/">Go and add one!</Link>
+							<Link to="/">Let's add a recipe!</Link>
 						</div>
 						:
 						<div className="col-md-6 offset-md-3 recipe-info">
