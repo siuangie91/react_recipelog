@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { Link } from 'react-router-dom';
+
 import Recipe from './Recipe';
 import Header from './Header';
 
@@ -10,16 +12,24 @@ class RecipePage extends React.Component {
 		return (	
 			<section className="main-content">
 				<Header />
-				<section className="col-md-6 offset-md-3">
-					<h2>Your Recipes</h2>
-					{
-						this.props.recipes.map((recipe) => {
-							return (
-								<Recipe key={recipe.id} recipe={recipe}/>
-							);
-						})
-					}
-				</section>
+				{
+					(this.props.recipes.length < 1) ?
+						<section className="col-md-6 offset-md-3">
+							<h2>Uh oh! You don't have any recipes yet!</h2>
+							<Link to="/">Go and add one!</Link>
+						</section>
+						:
+						<section className="col-md-6 offset-md-3">
+							<h2>Your Recipes</h2>
+							{
+								this.props.recipes.map((recipe) => {
+									return (
+										<Recipe key={recipe.id} recipe={recipe}/>
+									);
+								})
+							}
+						</section>
+				}				
 			</section>
 		);
 	}

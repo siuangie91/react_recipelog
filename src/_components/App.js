@@ -1,6 +1,6 @@
 import React from 'react';
 // router
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Switch, Route } from 'react-router-dom';
 
 import Home from './Home';
 import Nav from './Nav';
@@ -10,7 +10,7 @@ import RecipeDetails from './RecipeDetails';
 export default class App extends React.Component {
 	render() {
 		return (
-			<BrowserRouter basename="/reactreciperegister">
+			<HashRouter basename="/reactreciperegister">
 				<div>
 					<Nav />
 					<Switch>
@@ -19,7 +19,7 @@ export default class App extends React.Component {
 						<Route path="/recipe/:id" component={RecipeDetails} />
 					</Switch>
 				</div>
-			</BrowserRouter>
+			</HashRouter>
 		);
 	}
 };
