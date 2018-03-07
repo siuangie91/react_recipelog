@@ -11,7 +11,8 @@ import NotFound from './NotFound';
 export default class App extends React.Component {
 	render() {
 		return (
-			<HashRouter basename="/reactreciperegister">
+			<HashRouter>
+				{/*<HashRouter basename="/reactreciperegister">*/}
 				<div>
 					<Nav />
 					<Switch>
