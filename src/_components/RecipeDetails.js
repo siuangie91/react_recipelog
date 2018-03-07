@@ -16,22 +16,32 @@ class RecipeDetails extends React.Component {
 				<Header />
 				<div className="col-md-6 offset-md-3 recipe-info">
 					<img src={`http://placehold.it/300x300?text=${currentRecipe.name}`} alt={currentRecipe.name}/>
-					<h2>{recipeId}. {currentRecipe.name}</h2>
-					<p>{currentRecipe.description}</p>
-					<ul><strong>Ingredients</strong>
+					<h2>{currentRecipe.name}</h2>
+					<div className="recipe-description">
 						{
-							currentRecipe.ingredients.map((item, i) => {
+							currentRecipe.description.map((desc, i) => {
 								return (
-									<li key={i}>{item}</li>
+									<p key={i}>{desc}</p>
+								);
+							})
+						}
+					</div>
+					<h4>Ingredients</h4>
+					<ul className="ingredients-list">
+						{
+							currentRecipe.ingredients.map((ingr, i) => {
+								return (
+									<li key={i}>{ingr}</li>
 								);
 							})
 						}
 					</ul>
-					<ol><strong>Directions</strong>
+					<h4>Directions</h4>
+					<ol className="directions-list">
 						{
-							currentRecipe.directions.map((item, i) => {
+							currentRecipe.directions.map((dir, i) => {
 								return (
-									<li key={i}>{item}</li>
+									<li key={i}>{dir}</li>
 								);
 							})
 						}

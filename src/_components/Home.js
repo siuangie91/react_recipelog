@@ -16,7 +16,7 @@ class Home extends React.Component {
 			recipe: {
 				id: '',
 				name: '',
-				description: '',
+				description: [],
 				ingredients: [],
 				directions: []
 			},
@@ -33,7 +33,10 @@ class Home extends React.Component {
 	}
 
 	updateRecipeArr(string, recipePart) {
-		let arr = string.split('\n');
+		let arr = string.split('\n')
+					.map(item => item.trim()) // trim out the lines that are just spaces
+					.filter(item => item.length > 0); // filter out any items that may have been created by pressing Enter by accident
+
 		let recipe = this.state.recipe;
 		recipe[recipePart] = arr;
 		this.setState({
@@ -53,7 +56,7 @@ class Home extends React.Component {
 			recipe: {
 				id: '',
 				name: '',
-				description: '',
+				description: [],
 				ingredients: [],
 				directions: []
 			}
@@ -92,8 +95,8 @@ class Home extends React.Component {
 							</FormGroup>
 							<FormGroup>
 								<ControlLabel>Description</ControlLabel>
-								<FormControl type="text" placeholder="Double fried, extra crispy chicken"
-									onChange={e => this.updateRecipeStr(e.target.value, 'description')}/>
+								<FormControl componentClass="textarea" rows="3" placeholder="Hit Enter to create a new paragraph"
+									onChange={e => this.updateRecipeArr(e.target.value, 'description')}/>
 							</FormGroup>
 							<FormGroup>
 								<ControlLabel>Ingredients</ControlLabel>
