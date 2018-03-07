@@ -1,6 +1,6 @@
 # React Recipe Register with Redux Store 
 
-## [![status](https://img.shields.io/badge/status-Work--In--Progress-orange.svg)](http://projects.angiesiudevworks.com/reactreciperegister/) ##
+[![status](https://img.shields.io/badge/status-Work--In--Progress-orange.svg)](http://projects.angiesiudevworks.com/reactreciperegister/)
 
 A web app to create a recipe log. ***FRONT-END ONLY***
 
