@@ -7,18 +7,60 @@
 }
 
 body {
+	position: relative;
+	min-height: 100vh;
 	/*background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(https://scontent-atl3-1.cdninstagram.com/vp/eb60bba2d3bd7a0147a2251923efc1d4/5B425833/t51.2885-15/s750x750/sh0.08/e35/23970161_392715597829783_1256503364028465152_n.jpg) no-repeat;*/
 	background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)), url(https://scontent-atl3-1.cdninstagram.com/vp/a205bf4243cf2cb368786cf706332afe/5B314A13/t51.2885-15/e35/23823660_1637413389643823_2318266511355019264_n.jpg) no-repeat;
 	background-position: center center;
 	background-size: cover;
-	min-height: 100vh;
+}
+
+.nav-container {
+	position: relative;
+	height: 3em;
+	background: rgba(255,255,255,0.75);
+}
+
+.nav-container h1 {
+	position: relative;
+	display: inline-block;
+	top: 50%;
+	padding-left: 1em;
+	font-size: 18px;
+	-webkit-transform: translate(0,-50%);
+	-moz-transform: translate(0,-50%);
+	transform: translate(0,-50%);
 }
 
 .nav-container nav {
-	height: 3em;
-	background: rgba(255,255,255,0.75);
+	position: absolute;	
+	height: 100%;
+	top: 0;
+	right: 0;
 	padding: 0 1em;
 	text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+	.nav-container {
+		height: 80px;
+	}
+
+	.nav-container h1 {
+		display: block;
+		top: 10px;
+		text-align: center;
+		-webkit-transform: translate(0,0);
+		-moz-transform: translate(0,0);
+		transform: translate(0,0);
+	}
+
+	.nav-container nav {
+		position: relative;
+		top: 10px;
+		height: 40px;
+		padding: 0;
+	}
 }
 
 .nav-container nav a {
@@ -54,7 +96,7 @@ body {
 }
 
 .main-content {
-	padding: 0 1em;
+	padding: 1em;
 }
 
 header {
@@ -127,4 +169,34 @@ header {
 
 .recipe-info {
 	padding-left: 1em;
+}
+
+footer {
+	position: absolute;
+	width: 100%;
+	height: 100px;
+	bottom: -80px;
+	background: rgba(255,255,255,0.75);
+}
+
+footer > div {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	text-align: center;	
+	-webkit-transform: translate(0,-50%);
+	-moz-transform: translate(0,-50%);
+	transform: translate(0,-50%);
+}
+
+footer p {
+	padding: 5px 0;
+	margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+	footer > div {
+		padding-left: 3em;
+		padding-right: 3em;
+	}
 }

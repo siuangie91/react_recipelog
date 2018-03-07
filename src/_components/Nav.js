@@ -5,6 +5,7 @@ class Nav extends React.Component {
 	render() {
 		return (
 			<section className="nav-container">
+				<h1>React Recipe Register</h1>
 				<nav>
 					<NavLink exact to="/" activeClassName="active">
 						<span><i className="fa fa-home"></i> Home</span>
