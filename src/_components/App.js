@@ -7,10 +7,10 @@ import Nav from './Nav';
 import RecipePage from './RecipePage';
 import RecipeDetails from './RecipeDetails';
 
-export default class App extends React.Component {	
+export default class App extends React.Component {
 	render() {
 		return (
-			<BrowserRouter>
+			<BrowserRouter basename="/reactreciperegister">
 				<div>
 					<Nav />
 					<Switch>

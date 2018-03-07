@@ -12,7 +12,7 @@ class Recipe extends React.Component {
 						<img src={`http://placehold.it/100x100?text=${name}`} alt={name}/>
 					</div>
 					<div className="recipe-title">
-						<h4>{id+1}. {name}</h4>
+						<h4>{id}. {name}</h4>
 						<p>{description}</p>
 					</div>
 				</div>

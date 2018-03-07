@@ -6,16 +6,17 @@ import Header from './Header';
 class RecipeDetails extends React.Component {
 	render() {
 		const recipeId = this.props.match.params.id;
-		console.log('current recipe', this.props.recipes[recipeId]);
 
-		const currentRecipe = this.props.recipes[recipeId];
+		console.log('current recipe', this.props.recipes[recipeId - 1]); // subtract one because IDs were not zero-indexed
+
+		const currentRecipe = this.props.recipes[recipeId - 1]; // subtract one because IDs were not zero-indexed
 
 		return (
 			<section className="main-content">
 				<Header />
 				<div className="col-md-6 offset-md-3 recipe-info">
 					<img src={`http://placehold.it/300x300?text=${currentRecipe.name}`} alt={currentRecipe.name}/>
-					<h2>{+recipeId+1}. {currentRecipe.name}</h2>
+					<h2>{recipeId}. {currentRecipe.name}</h2>
 					<p>{currentRecipe.description}</p>
 					<ul><strong>Ingredients</strong>
 						{
@@ -35,7 +36,7 @@ class RecipeDetails extends React.Component {
 							})
 						}
 					</ol>
-				</div>		
+				</div>
 			</section>
 		);
 	}

@@ -12,7 +12,7 @@ class Nav extends React.Component {
 					{' '}
 					<NavLink to="/recipes" activeClassName="active">
 						<span><i className="fa fa-book"></i> Recipes</span>
-					</NavLink> 
+					</NavLink>
 				</nav>
 			</section>
 		);

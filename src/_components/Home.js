@@ -60,7 +60,7 @@ class Home extends React.Component {
 		});
 		// reset form
 		document.querySelectorAll('.form-control').forEach((currentItem) => {
-			currentItem.value = "";	
+			currentItem.value = "";
 			currentItem.innerHTML = "";
 		});
 	}
@@ -74,22 +74,22 @@ class Home extends React.Component {
 				<Header />
 				<section className="row">
 					{
-						this.state.showPreview ? 
+						this.state.showPreview ?
 							<div className="col-md-6 offset-md-3 home-preview">
 								<h2>Your new recipe:</h2>
-								<Recipe recipe={recipeStore[recipeStore.length - 1]}/>		
+								<Recipe recipe={recipeStore[recipeStore.length - 1]}/>
 							</div> :
 							''
 					}
-					<div className="col-md-6 offset-md-3 form-container"> 
+					<div className="col-md-6 offset-md-3 form-container">
 						<h2>Enter your recipe info:</h2>
 
 						<Form>
 							<FormGroup>
 								<ControlLabel>Recipe Name</ControlLabel>
-								<FormControl type="text" placeholder="World Famous Chicken" 
+								<FormControl type="text" placeholder="World Famous Chicken"
 									onChange={e => this.updateRecipeStr(e.target.value, 'name')}/>
-							</FormGroup>	
+							</FormGroup>
 							<FormGroup>
 								<ControlLabel>Description</ControlLabel>
 								<FormControl type="text" placeholder="Double fried, extra crispy chicken"
@@ -97,19 +97,19 @@ class Home extends React.Component {
 							</FormGroup>
 							<FormGroup>
 								<ControlLabel>Ingredients</ControlLabel>
-								<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each ingredient" 
+								<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each ingredient"
 									onChange={e => this.updateRecipeArr(e.target.value, 'ingredients')}/>
 							</FormGroup>
 							<FormGroup>
 								<ControlLabel>Directions</ControlLabel>
-								<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each step" 
+								<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each step"
 									onChange={e => this.updateRecipeArr(e.target.value, 'directions')}/>
 							</FormGroup>
 							<FormGroup className="submit">
 								<Button className="btn btn-primary"
 									onClick={() => {
-										this.updateRecipeStr(recipeStore.length, 'id');
-										this.addToRecipeRegister()
+										this.updateRecipeStr(recipeStore.length+1, 'id');
+										this.addToRecipeRegister();
 									}}>
 										<strong>+ Add to Recipe Register</strong>
 								</Button>
