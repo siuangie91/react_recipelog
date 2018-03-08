@@ -66,6 +66,8 @@ class Home extends React.Component {
 			currentItem.value = "";
 			currentItem.innerHTML = "";
 		});
+
+		window.scrollTo(0,0);
 	}
 
 	render() {
