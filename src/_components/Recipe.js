@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Recipe extends React.Component {
 	render() {
-		const { id, name, description } = this.props.recipe;
+		const { id, name, image, description } = this.props.recipe;
 		
 		const descBlurb = (description[0].length > 100) ? 
 			`${description[0].substr(0, 100)}...` : description[0].substr(0, 100);
@@ -12,7 +12,7 @@ class Recipe extends React.Component {
 			<div className="recipe-preview">
 				<div className="recipe-header">
 					<div className="recipe-image">
-						<img src={`http://placehold.it/100x100?text=${name}`} alt={name}/>
+						<img src={image} alt={name}/>
 					</div>
 					<div className="recipe-title">
 						<h4>{id}. {name}</h4>

@@ -23,7 +23,7 @@ class RecipeDetails extends React.Component {
 						</div>
 						:
 						<div className="col-md-6 offset-md-3 recipe-info">
-							<img src={`http://placehold.it/300x300?text=${currentRecipe.name}`} alt={currentRecipe.name}/>
+							<img src={currentRecipe.image} alt={currentRecipe.name}/>
 							<h2>{currentRecipe.name}</h2>
 							<div className="recipe-description">
 								{

@@ -16,6 +16,7 @@ class Home extends React.Component {
 			recipe: {
 				id: '',
 				name: '',
+				image: '',
 				description: [],
 				ingredients: [],
 				directions: []
@@ -55,6 +56,7 @@ class Home extends React.Component {
 		this.setState({
 			recipe: {
 				id: '',
+				image: '',
 				name: '',
 				description: [],
 				ingredients: [],
@@ -68,6 +70,24 @@ class Home extends React.Component {
 		});
 
 		window.scrollTo(0,0);
+	}
+
+	previewImage(e) {
+		e.preventDefault();
+
+		let reader = new FileReader();
+		let theFile = e.target.files[0];
+
+		console.log('theFile', theFile);
+		console.log('reader', reader);
+
+		reader.onloadend = (theFile, image) => {
+			console.log('reader.result', reader.result);
+
+			this.updateRecipeStr(reader.result, 'image');
+		}
+
+		reader.readAsDataURL(theFile);
 	}
 
 	render() {
@@ -90,6 +110,14 @@ class Home extends React.Component {
 						<h2>Enter your recipe info:</h2>
 
 						<Form>
+							<FormGroup>
+								<div className="image-preview">
+									<img src={this.state.recipe.image} height="200"/>
+								</div>
+								<ControlLabel>Photo</ControlLabel>
+								<FormControl type="file"
+									onChange={e => this.previewImage(e)}/>
+							</FormGroup>
 							<FormGroup>
 								<ControlLabel>Recipe Name</ControlLabel>
 								<FormControl type="text" placeholder="World Famous Chicken"
