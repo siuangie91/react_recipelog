@@ -81,13 +81,13 @@ class Home extends React.Component {
 		console.log('theFile', theFile);
 		console.log('reader', reader);
 
+		reader.readAsDataURL(theFile);
+
 		reader.onloadend = (theFile, image) => {
 			console.log('reader.result', reader.result);
 
 			this.updateRecipeStr(reader.result, 'image');
 		}
-
-		reader.readAsDataURL(theFile);
 	}
 
 	render() {
