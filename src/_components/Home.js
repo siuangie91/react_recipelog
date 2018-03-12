@@ -111,12 +111,18 @@ class Home extends React.Component {
 
 						<Form>
 							<FormGroup>
-								<div className="image-preview">
-									<img src={this.state.recipe.image} height="200"/>
-								</div>
-								<ControlLabel>Photo</ControlLabel>
+								<ControlLabel>Photo</ControlLabel><br />
 								<FormControl type="file"
 									onChange={e => this.previewImage(e)}/>
+								{
+									(this.state.recipe.image) ? 
+										<div className="image-preview">
+											<br />
+											<img src={this.state.recipe.image} height="200"/>
+										</div>
+										:
+										""
+								}
 							</FormGroup>
 							<FormGroup>
 								<ControlLabel>Recipe Name</ControlLabel>

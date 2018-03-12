@@ -154,8 +154,20 @@ header {
     position: absolute;
 	display: inline-block;
     width: 100px;
+    height: 100px;
     top: 10px;
     left: 10px;
+}
+
+.recipe-image img {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: auto;
+	top: 50%;
+	-webkit-transform: translate(0,-50%);
+	-moz-transform: translate(0,-50%);
+	transform: translate(0,-50%);
 }
 
 .recipe-title {
