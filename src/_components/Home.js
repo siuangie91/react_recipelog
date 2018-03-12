@@ -45,6 +45,24 @@ class Home extends React.Component {
 		})
 	}
 
+	previewImage(e) {
+		e.preventDefault();
+
+		let reader = new FileReader();
+		let theFile = e.target.files[0];
+
+		console.log('theFile', theFile);
+		console.log('reader', reader);
+
+		reader.readAsDataURL(theFile);
+
+		reader.onloadend = (theFile, image) => {
+			console.log('reader.result', reader.result);
+
+			this.updateRecipeStr(reader.result, 'image');
+		}
+	}
+
 	addToRecipeRegister() {
 		// pass it into the store
 		this.props.setRecipe(this.state.recipe);
@@ -70,24 +88,6 @@ class Home extends React.Component {
 		});
 
 		window.scrollTo(0,0);
-	}
-
-	previewImage(e) {
-		e.preventDefault();
-
-		let reader = new FileReader();
-		let theFile = e.target.files[0];
-
-		console.log('theFile', theFile);
-		console.log('reader', reader);
-
-		reader.readAsDataURL(theFile);
-
-		reader.onloadend = (theFile, image) => {
-			console.log('reader.result', reader.result);
-
-			this.updateRecipeStr(reader.result, 'image');
-		}
 	}
 
 	render() {
