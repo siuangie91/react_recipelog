@@ -23,6 +23,8 @@ class Home extends React.Component {
 			},
 			showPreview: false
 		}
+
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	updateRecipeStr(value, recipePart) {
@@ -90,6 +92,30 @@ class Home extends React.Component {
 		window.scrollTo(0,0);
 	}
 
+	handleSubmit(recipeStore) {
+		// const recipeStore = this.props.recipes;
+
+		let rName = document.querySelector('input[name="name"]');
+		let rDescription = document.querySelector('textarea[name="description"]');
+		let rIngredients = document.querySelector('textarea[name="ingredients"]');
+		let rDirections = document.querySelector('textarea[name="directions"]');
+
+		let rFields = [rName, rDescription, rIngredients, rDirections];
+
+		console.log('rName', rName.value.trim());
+		console.log('rDescription', rDescription.value.trim());
+		console.log('rIngredients', rIngredients.value.trim());
+		console.log('rDirections', rDirections.value.trim());
+
+		if(rName.value.trim() !== "" && rDescription.value.trim() !== "" && rIngredients.value.trim() !== "" && rIngredients.value.trim() !== "") {
+			rFields.forEach(field => field.classList.remove('error'));
+			this.updateRecipeStr(recipeStore.length+1, 'id');
+			this.addToRecipeRegister();
+		} else {
+			rFields.forEach(field => field.classList.add('error'));
+		}
+	}
+
 	render() {
 		// console.log('this.props.recipes', this.props.recipes);
 		const recipeStore = this.props.recipes;
@@ -108,6 +134,7 @@ class Home extends React.Component {
 					}
 					<div className="col-md-6 offset-md-3 form-container">
 						<h2>Enter your recipe info:</h2>
+						<p><em>Please fill out all fields</em></p>
 
 						<Form>
 							<FormGroup>
@@ -125,31 +152,33 @@ class Home extends React.Component {
 								}
 							</FormGroup>
 							<FormGroup>
-								<ControlLabel>Recipe Name</ControlLabel>
-								<FormControl type="text" placeholder="World Famous Chicken"
+								<ControlLabel>Recipe Name*</ControlLabel>
+								<FormControl type="text" placeholder="World Famous Chicken" name="name"
 									onChange={e => this.updateRecipeStr(e.target.value, 'name')}/>
 							</FormGroup>
 							<FormGroup>
-								<ControlLabel>Description</ControlLabel>
-								<FormControl componentClass="textarea" rows="3" placeholder="Hit Enter to create a new paragraph"
+								<ControlLabel>Description*</ControlLabel>
+								<FormControl componentClass="textarea" rows="3" placeholder="Hit Enter to create a new paragraph" name="description"
 									onChange={e => this.updateRecipeArr(e.target.value, 'description')}/>
 							</FormGroup>
 							<FormGroup>
-								<ControlLabel>Ingredients</ControlLabel>
-								<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each ingredient"
+								<ControlLabel>Ingredients*</ControlLabel>
+								<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each ingredient" name="ingredients"
 									onChange={e => this.updateRecipeArr(e.target.value, 'ingredients')}/>
 							</FormGroup>
 							<FormGroup>
-								<ControlLabel>Directions</ControlLabel>
-								<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each step"
+								<ControlLabel>Directions*</ControlLabel>
+								<FormControl componentClass="textarea" rows="7" placeholder="Hit Enter after each step" name="directions"
 									onChange={e => this.updateRecipeArr(e.target.value, 'directions')}/>
 							</FormGroup>
 							<FormGroup className="submit">
-								<Button className="btn btn-primary"
-									onClick={() => {
+								{/*<input type="submit" value="Add to Recipe Register" className="btn btn-primary"/>*/}
+								<Button className="btn btn-primary" name="submit-btn"
+									onClick={() => this.handleSubmit(recipeStore)
+									/*onClick={() => {
 										this.updateRecipeStr(recipeStore.length+1, 'id');
 										this.addToRecipeRegister();
-									}}>
+									}}*/}>
 										<strong>+ Add to Recipe Register</strong>
 								</Button>
 							</FormGroup>

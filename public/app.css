@@ -119,6 +119,10 @@ header {
 	opacity: 0.75;
 }
 
+.form-control.error {
+	border: 2px solid #ff0000;
+}
+
 .form-group.submit {
 	text-align: center;
 }
