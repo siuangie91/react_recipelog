@@ -102,17 +102,19 @@ class Home extends React.Component {
 
 		let rFields = [rName, rDescription, rIngredients, rDirections];
 
-		console.log('rName', rName.value.trim());
-		console.log('rDescription', rDescription.value.trim());
-		console.log('rIngredients', rIngredients.value.trim());
-		console.log('rDirections', rDirections.value.trim());
+		// console.log('rName', rName.value.trim());
+		// console.log('rDescription', rDescription.value.trim());
+		// console.log('rIngredients', rIngredients.value.trim());
+		// console.log('rDirections', rDirections.value.trim());
 
-		if(rName.value.trim() !== "" && rDescription.value.trim() !== "" && rIngredients.value.trim() !== "" && rIngredients.value.trim() !== "") {
-			rFields.forEach(field => field.classList.remove('error'));
+		rFields.forEach(field => field.classList.remove('error'));
+
+		if(rName.value.trim() !== "" && rDescription.value.trim() !== "" && rIngredients.value.trim() !== "" && rDirections.value.trim() !== "") {
 			this.updateRecipeStr(recipeStore.length+1, 'id');
 			this.addToRecipeRegister();
 		} else {
-			rFields.forEach(field => field.classList.add('error'));
+			rFields.filter(field => field.value.trim() == "")
+				.forEach(field => field.classList.add('error'));
 		}
 	}
 
