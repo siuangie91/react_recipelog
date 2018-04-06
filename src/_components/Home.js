@@ -93,8 +93,6 @@ class Home extends React.Component {
 	}
 
 	handleSubmit(recipeStore) {
-		// const recipeStore = this.props.recipes;
-
 		let rName = document.querySelector('input[name="name"]');
 		let rDescription = document.querySelector('textarea[name="description"]');
 		let rIngredients = document.querySelector('textarea[name="ingredients"]');
@@ -174,13 +172,8 @@ class Home extends React.Component {
 									onChange={e => this.updateRecipeArr(e.target.value, 'directions')}/>
 							</FormGroup>
 							<FormGroup className="submit">
-								{/*<input type="submit" value="Add to Recipe Register" className="btn btn-primary"/>*/}
 								<Button className="btn btn-primary" name="submit-btn"
-									onClick={() => this.handleSubmit(recipeStore)
-									/*onClick={() => {
-										this.updateRecipeStr(recipeStore.length+1, 'id');
-										this.addToRecipeRegister();
-									}}*/}>
+									onClick={() => this.handleSubmit(recipeStore)}>
 										<strong>+ Add to Recipe Register</strong>
 								</Button>
 							</FormGroup>

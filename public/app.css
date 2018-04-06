@@ -120,7 +120,7 @@ header {
 }
 
 .form-control.error {
-	border: 2px solid #ff0000;
+	box-shadow: 0 0 5px 1px #ff0000;
 }
 
 .form-group.submit {
