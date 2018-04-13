@@ -8,5 +8,5 @@ A web app to create a recipe log. ***FRONT-END ONLY***
 **Demo (work-in-progress version):** [http://projects.angiesiudevworks.com/reactreciperegister/](http://projects.angiesiudevworks.com/reactreciperegister/)
 
 **TODO:**
-- Move to production
+- QA
 - Form validation -- COMPLETED
